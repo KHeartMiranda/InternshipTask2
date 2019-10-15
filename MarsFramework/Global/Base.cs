@@ -42,8 +42,9 @@ namespace MarsFramework.Global
                     break;
 
             }
+            ExcelLib.PopulateInCollection(Base.ExcelPath, "SignIn");
 
-            driver.Navigate().GoToUrl("http://www.skillswap.pro");
+            driver.Navigate().GoToUrl(ExcelLib.ReadData(2, "Url"));
 
             #region Initialise Reports
 
