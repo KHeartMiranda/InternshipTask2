@@ -20,23 +20,23 @@ namespace MarsFramework.Pages
         }
 
         //Click on ShareSkill Button
-        [FindsBy(How = How.LinkText, Using = "Share Skill")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[1]/div/div[2]/a")]
         private IWebElement ShareSkillButton { get; set; }
 
         //Enter the Title in textbox
-        [FindsBy(How = How.Name, Using = "title")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[1]/div/div[2]/div/div[1]/input")]
         private IWebElement Title { get; set; }
 
         //Enter the Description in textbox
-        [FindsBy(How = How.Name, Using = "description")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[2]/div/div[2]/div[1]/textarea")]
         private IWebElement Description { get; set; }
 
         //Click on Category Dropdown
-        [FindsBy(How = How.Name, Using = "categoryId")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[3]/div[2]/div/div/select")]
         private IWebElement CategoryDropDown { get; set; }
 
         //Click on SubCategory Dropdown
-        [FindsBy(How = How.Name, Using = "subcategoryId")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[3]/div[2]/div/div[2]/div[1]/select")]
         private IWebElement SubCategoryDropDown { get; set; }
 
         //Enter Tag names in textbox
@@ -61,11 +61,11 @@ namespace MarsFramework.Pages
 
 
         //Click on Start Date dropdown
-        [FindsBy(How = How.Name, Using = "startDate")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[7]/div[2]/div/div[1]/div[2]/input")]
         private IWebElement StartDateDropDown { get; set; }
 
         //Click on End Date dropdown
-        [FindsBy(How = How.Name, Using = "endDate")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[7]/div[2]/div/div[1]/div[4]/input")]
         private IWebElement EndDateDropDown { get; set; }
 
 
@@ -176,31 +176,31 @@ namespace MarsFramework.Pages
 
             OnLine.Click();
 
-            StartDateDropDown.SendKeys("11/01/2019");
+            StartDateDropDown.SendKeys(ExcelLib.ReadData(2, "Start Date"));
 
-            EndDateDropDown.SendKeys("11/07/2019");
+            EndDateDropDown.SendKeys(ExcelLib.ReadData(2, "End Date"));
 
             Sunday.Click();
-            SundayStartTime.SendKeys("08:00AM");
-            SundayEndTime.SendKeys("05:00PM");
+            SundayStartTime.SendKeys(ExcelLib.ReadData(2, "Sunday Start Time"));
+            SundayEndTime.SendKeys(ExcelLib.ReadData(2, "Sunday End Time"));
 
             Monday.Click();
-            MondayStartTime.SendKeys("08:00AM");
-            MondayEndTime.SendKeys("05:00PM");
+            MondayStartTime.SendKeys(ExcelLib.ReadData(2, "Monday Start Time"));
+            MondayEndTime.SendKeys(ExcelLib.ReadData(2, "Monday End Time"));
 
             Tuesday.Click();
-            TuesdayStartTime.SendKeys("08:00AM");
-            TuesdayEndTime.SendKeys("05:00PM");
+            TuesdayStartTime.SendKeys(ExcelLib.ReadData(2, "Monday Start Time"));
+            TuesdayEndTime.SendKeys(ExcelLib.ReadData(2, "Monday End Time"));
 
             CreditOption.Click();
 
             if (SkillExchangeOption.Selected)
             {
-                SkillExchange.SendKeys("photo editing");
+                SkillExchange.SendKeys(ExcelLib.ReadData(2, "Skill Exchange"));
             }
             else
             {
-                CreditAmount.SendKeys("10");
+                CreditAmount.SendKeys(ExcelLib.ReadData(2, "Credit"));
             }
 
             Hidden.Click();

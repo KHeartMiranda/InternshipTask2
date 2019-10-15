@@ -16,7 +16,7 @@ namespace MarsFramework.Pages
         }
 
         //Click on Manage Listings Link
-        [FindsBy(How = How.LinkText, Using = "Manage Listings")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='account-profile-section']/div/section[1]/div/a[3]")]
         private IWebElement manageListingsLink { get; set; }
 
         //View the listing
@@ -41,7 +41,7 @@ namespace MarsFramework.Pages
         private IWebElement DescriptionManageListings { get; set; }
 
         //Check Title on Manage Listings after clicking on Edit button
-        [FindsBy(How = How.Name, Using = "title")]
+        [FindsBy(How = How.XPath, Using = "//*[@id='service-listing-section']/div[2]/div/form/div[1]/div/div[2]/div/div[1]/input")]
         private IWebElement Title { get; set; }
 
         internal void Listings()

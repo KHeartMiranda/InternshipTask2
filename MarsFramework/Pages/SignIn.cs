@@ -3,6 +3,8 @@ using OpenQA.Selenium.Support.PageObjects;
 using System.Threading;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
+using MarsFramework.Global;
+using static MarsFramework.Global.GlobalDefinitions;
 
 namespace MarsFramework.Pages
 {
@@ -35,11 +37,13 @@ namespace MarsFramework.Pages
 
         internal void LoginSteps()
         {
+            ExcelLib.PopulateInCollection(Base.ExcelPath, "SignIn");
+
             SignIntab.Click();
             
-            Email.SendKeys("mvpstudio.qa@gmail.com");
+            Email.SendKeys(ExcelLib.ReadData(2, "Username"));
 
-            Password.SendKeys("SydneyQa2018");
+            Password.SendKeys(ExcelLib.ReadData(2, "Password"));
 
             LoginBtn.Click();
         }
