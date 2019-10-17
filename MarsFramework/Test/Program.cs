@@ -15,7 +15,10 @@ namespace MarsFramework
             public void AddShareSkillTest()
             {
                 ShareSkill shareskill = new ShareSkill();
+                ManageListings manageListings = new ManageListings();
                 shareskill.AddShareSkill();
+                manageListings.ValidateAddedShareSkill();
+                
             }
 
             [Test, Order(2)]
@@ -25,11 +28,19 @@ namespace MarsFramework
                 manageListings.ViewShareSkill();
             }
 
-            [Test]
+            [Test, Order(3)]
             public void EditShareSkillTest()
             {
                 ManageListings manageListings = new ManageListings();
                 manageListings.EditShareSkill();
+            }
+
+            [Test]
+            public void DeleteShareSkillTest()
+            {
+                ManageListings manageListings = new ManageListings();
+                manageListings.DeleteShareSkill();
+                manageListings.ValidateDeleteData();
             }
 
         }
