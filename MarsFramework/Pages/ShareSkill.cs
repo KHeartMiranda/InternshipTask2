@@ -165,9 +165,9 @@ namespace MarsFramework.Pages
 
             Description.SendKeys(ExcelLib.ReadData(2, "Description"));
 
-            Category(CategoryDropDown, "Video & Animation");
+            Category(CategoryDropDown, ExcelLib.ReadData(2, "Category"));
 
-            SubCategory(SubCategoryDropDown, "Promotional Videos");
+            SubCategory(SubCategoryDropDown, ExcelLib.ReadData(2, "Sub Category"));
 
             Tags.SendKeys(ExcelLib.ReadData(2, "Tags"));
             Tags.SendKeys(Keys.Enter);
@@ -207,5 +207,7 @@ namespace MarsFramework.Pages
 
             Save.Click();
         }
+
+        
     }
 }
